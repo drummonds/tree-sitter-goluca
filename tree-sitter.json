@@ -1,0 +1,30 @@
+{
+  "grammars": [
+    {
+      "name": "goluca",
+      "camelcase": "Goluca",
+      "scope": "source.goluca",
+      "path": ".",
+      "file-types": [
+        "goluca"
+      ],
+      "highlights": "queries/highlights.scm"
+    }
+  ],
+  "metadata": {
+    "version": "0.1.0",
+    "license": "MIT",
+    "description": "Tree-sitter grammar for Go-Luca accounting files",
+    "links": {
+      "repository": "https://github.com/drummonds/tree-sitter-goluca.git"
+    }
+  },
+  "bindings": {
+    "c": true,
+    "go": true,
+    "node": true,
+    "python": true,
+    "rust": true,
+    "swift": true
+  }
+}

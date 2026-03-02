@@ -1,0 +1,83 @@
+===
+Dash arrow
+===
+
+2026-01-01 *
+  Asset:Bank -> Expense:Food 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Double slash arrow
+===
+
+2026-01-01 *
+  Asset:Bank // Expense:Food 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Unicode arrow
+===
+
+2026-01-01 *
+  Asset:Bank → Expense:Food 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Greater-than arrow
+===
+
+2026-01-01 *
+  Asset:Bank > Expense:Food 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))

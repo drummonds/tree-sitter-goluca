@@ -1,0 +1,172 @@
+===
+Simple transaction with description
+===
+
+2026-02-07 * Dividend payment
+  Asset:Cash -> Equity:Capital "Dividend" 200 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))))
+
+===
+Transaction without description
+===
+
+2026-02-07 * Transfer
+  Asset:Bank -> Asset:Savings 1000.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Multi-leg linked transaction
+===
+
+2026-02-01 * Payroll
+  +Income:Salary -> Asset:Bank "net salary" 4000.00 GBP
+  +Income:Salary -> Expense:Tax "income tax" 1000.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      (linked_prefix)
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))
+    (movement
+      (linked_prefix)
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))))
+
+===
+Pending transaction
+===
+
+2026-03-01 ! Awaiting confirmation
+  Asset:Bank -> Expense:Food "lunch" 15.50 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))))
+
+===
+Header without payee
+===
+
+2026-04-01 *
+  Asset:Bank -> Expense:Misc 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Comments
+===
+
+# This is a comment
+; This is also a comment
+
+---
+
+(source_file
+  (comment)
+  (comment))
+
+===
+Multiple transactions
+===
+
+2026-01-15 * First
+  Income:Salary -> Asset:Bank "salary" 5000.00 GBP
+
+2026-01-20 * Second
+  Asset:Bank -> Expense:Rent "rent" 1200.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity)))
+  (transaction
+    (header
+      (date)
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))))

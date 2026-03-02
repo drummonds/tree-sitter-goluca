@@ -1,0 +1,83 @@
+===
+Two-part account
+===
+
+2026-01-01 *
+  Asset:Cash -> Expense:Food 50.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Three-part account
+===
+
+2026-01-01 *
+  Equity:Capital:001 -> Asset:Bank 500.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Four-part account with hyphenated ID
+===
+
+2026-01-01 *
+  Liability:InterestAccount:0000-111:Main -> Asset:Bank 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Account with Pending suffix
+===
+
+2026-01-01 *
+  Liability:InterestAccount:0000-111:Pending -> Asset:Bank 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (date)
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
