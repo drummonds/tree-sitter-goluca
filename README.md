@@ -35,3 +35,12 @@ npx tree-sitter test
 | commodity   | uppercase (required)          | `GBP`                                     |
 | linked      | `+` prefix                    | `+Income:Salary`                          |
 | comment     | `#` or `;`                    | `# note`                                  |
+
+## Links
+
+| | |
+|---|---|
+| Documentation | https://h3-tree-sitter-goluca.statichost.page/ |
+| Source (Codeberg) | https://codeberg.org/hum3/tree-sitter-goluca |
+| Mirror (GitHub) | https://github.com/drummonds/tree-sitter-goluca |
+| Docs repo | https://codeberg.org/hum3/tree-sitter-goluca-docs |
