@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.3] - 2026-03-14
+
+ - Test release
+
 ## [0.1.2] - 2026-03-14
 
  - adding index
