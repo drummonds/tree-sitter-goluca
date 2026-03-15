@@ -10,7 +10,8 @@ Simple transaction with description
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement
@@ -33,7 +34,8 @@ Transaction without description
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement
@@ -56,7 +58,8 @@ Multi-leg linked transaction
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement
@@ -88,7 +91,8 @@ Pending transaction
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement
@@ -111,7 +115,8 @@ Header without payee
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -148,7 +153,8 @@ Multiple transactions
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement
@@ -160,7 +166,8 @@ Multiple transactions
       (commodity)))
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag)
       (payee))
     (movement

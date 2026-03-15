@@ -1,0 +1,334 @@
+===
+Date-only datetime
+===
+
+2026-02-07 * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Full datetime with UTC
+===
+
+2026-02-07T14:30:00Z * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (timezone))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Datetime with positive offset
+===
+
+2026-02-07T14:30:00+01:00 * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (timezone
+          (tz_offset)))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Fractional seconds milliseconds
+===
+
+2026-02-07T14:30:00.123Z * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (fractional)
+        (timezone))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Fractional seconds microseconds
+===
+
+2026-02-07T14:30:00.123456+05:30 * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (fractional)
+        (timezone
+          (tz_offset)))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Fractional seconds nanoseconds
+===
+
+2026-02-07T14:30:00.123456789Z * Payment
+  Asset:Bank -> Expense:Food 10.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (fractional)
+        (timezone))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Year-only date
+===
+
+2024 data annual:budget 50000
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date))
+      (param_name)
+      (param_value))))
+
+===
+Year-month date
+===
+
+2024-01 data monthly:target 4000
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date))
+      (param_name)
+      (param_value))))
+
+===
+Year-only with period end anchor
+===
+
+2024$ data annual:close balance
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date)
+        (period_anchor))
+      (param_name)
+      (param_value))))
+
+===
+Year-month with period end anchor
+===
+
+2024-01$ data monthly:close balance
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date)
+        (period_anchor))
+      (param_name)
+      (param_value))))
+
+===
+Period start anchor
+===
+
+2024-01-15^ data quarterly:report start-of-day
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date)
+        (period_anchor))
+      (param_name)
+      (param_value))))
+
+===
+Period end anchor
+===
+
+2024-01-31$ data monthly:close balance
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date)
+        (period_anchor))
+      (param_name)
+      (param_value))))
+
+===
+Period anchor with full datetime
+===
+
+2024-01-15T23:59:59$ * End of day close
+  Asset:Bank -> Equity:Close 0.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (period_anchor))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Knowledge date on transaction
+===
+
+2026-01-15%2026-01-20 * Late booking
+  Asset:CreditCard -> Expense:Groceries 45.50 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
+      (knowledge_datetime
+        (datetime
+          (date)))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Knowledge datetime with full timestamps
+===
+
+2026-01-15T10:00:00Z%2026-01-20T09:00:00+01:00 * Late booking
+  Asset:Bank -> Expense:Food 20.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date)
+        (time)
+        (timezone))
+      (knowledge_datetime
+        (datetime
+          (date)
+          (time)
+          (timezone
+            (tz_offset))))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))

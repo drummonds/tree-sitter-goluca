@@ -1,0 +1,57 @@
+===
+Transaction with metadata
+===
+
+2026-01-15 * Purchase
+  Asset:Bank -> Expense:Food 45.50 GBP
+  receipt: scan-001.pdf
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))
+    (metadata_line
+      (metadata_key)
+      (metadata_value))))
+
+===
+Multiple metadata lines
+===
+
+2026-01-15 * Purchase
+  Asset:Bank -> Expense:Food 45.50 GBP
+  receipt: scan-001.pdf
+  category: groceries
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))
+    (metadata_line
+      (metadata_key)
+      (metadata_value))
+    (metadata_line
+      (metadata_key)
+      (metadata_value))))

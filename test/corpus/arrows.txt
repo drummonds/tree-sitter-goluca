@@ -10,7 +10,8 @@ Dash arrow
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -31,7 +32,8 @@ Double slash arrow
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -52,7 +54,8 @@ Unicode arrow
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -73,7 +76,8 @@ Greater-than arrow
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
