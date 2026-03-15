@@ -10,7 +10,8 @@ Two-part account
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -31,7 +32,8 @@ Three-part account
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -52,7 +54,8 @@ Four-part account with hyphenated ID
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)
@@ -73,7 +76,52 @@ Account with Pending suffix
 (source_file
   (transaction
     (header
-      (date)
+      (datetime
+        (date))
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Lowercase-starting account
+===
+
+2026-01-01 *
+  income:Salary -> assets:Bank 500.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
+      (flag))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (amount)
+      (commodity))))
+
+===
+Digit-starting account
+===
+
+2026-01-01 *
+  9Fund:Main -> Asset:Bank 100.00 GBP
+
+---
+
+(source_file
+  (transaction
+    (header
+      (datetime
+        (date))
       (flag))
     (movement
       from: (account)

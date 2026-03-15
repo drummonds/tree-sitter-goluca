@@ -1,0 +1,291 @@
+===
+Option directive
+===
+
+option operating-currency GBP
+option require-accounts true
+
+---
+
+(source_file
+  (directive
+    (option_directive
+      (option_key)
+      (option_value)))
+  (directive
+    (option_directive
+      (option_key)
+      (option_value))))
+
+===
+Alias directive
+===
+
+alias Current Assets:Bank:Current
+
+---
+
+(source_file
+  (directive
+    (alias_directive
+      (alias_name)
+      (account))))
+
+===
+Commodity directive without date
+===
+
+commodity GBP
+
+---
+
+(source_file
+  (directive
+    (commodity_directive
+      (commodity))))
+
+===
+Commodity directive with date
+===
+
+2024-01-01 commodity GBP
+
+---
+
+(source_file
+  (directive
+    (commodity_directive
+      (datetime
+        (date))
+      (commodity))))
+
+===
+Commodity directive with metadata
+===
+
+2024-01-01 commodity GBP
+  name: British Pound Sterling
+  precision: 2
+
+---
+
+(source_file
+  (directive
+    (commodity_directive
+      (datetime
+        (date))
+      (commodity)
+      (metadata_line
+        (metadata_key)
+        (metadata_value))
+      (metadata_line
+        (metadata_key)
+        (metadata_value)))))
+
+===
+Open directive
+===
+
+2024-01-01 open Assets:Bank:Current GBP
+
+---
+
+(source_file
+  (directive
+    (open_directive
+      (datetime
+        (date))
+      (account)
+      (commodity_list
+        (commodity)))))
+
+===
+Open directive with multiple commodities
+===
+
+2024-01-01 open Assets:Bank:Current GBP,USD,EUR
+
+---
+
+(source_file
+  (directive
+    (open_directive
+      (datetime
+        (date))
+      (account)
+      (commodity_list
+        (commodity)
+        (commodity)
+        (commodity)))))
+
+===
+Open directive with metadata
+===
+
+2024-01-01 open Assets:Bank:Current GBP
+  bank: HSBC
+  sort-code: 12-34-56
+
+---
+
+(source_file
+  (directive
+    (open_directive
+      (datetime
+        (date))
+      (account)
+      (commodity_list
+        (commodity))
+      (metadata_line
+        (metadata_key)
+        (metadata_value))
+      (metadata_line
+        (metadata_key)
+        (metadata_value)))))
+
+===
+Customer directive
+===
+
+customer "John Smith"
+  account Assets:Receivables:JohnSmith
+  max-aggregate-balance 10000 GBP
+
+---
+
+(source_file
+  (directive
+    (customer_directive
+      (customer_name)
+      (customer_property
+        (customer_account
+          (account)))
+      (customer_property
+        (customer_constraint
+          (amount)
+          (commodity))))))
+
+===
+Customer directive with metadata
+===
+
+customer "Jane Doe"
+  account Assets:Receivables:JaneDoe
+  max-aggregate-balance 5000 GBP
+  tier: premium
+
+---
+
+(source_file
+  (directive
+    (customer_directive
+      (customer_name)
+      (customer_property
+        (customer_account
+          (account)))
+      (customer_property
+        (customer_constraint
+          (amount)
+          (commodity)))
+      (customer_property
+        (metadata_line
+          (metadata_key)
+          (metadata_value))))))
+
+===
+Data point
+===
+
+2024-01-15 data interest:base-rate 5.25
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date))
+      (param_name)
+      (param_value))))
+
+===
+Data point with knowledge date
+===
+
+2024-01-15%2024-01-10 data interest:base-rate 5.25
+
+---
+
+(source_file
+  (directive
+    (data_point
+      (datetime
+        (date))
+      (knowledge_datetime
+        (datetime
+          (date)))
+      (param_name)
+      (param_value))))
+
+===
+Mixed file
+===
+
+option operating-currency GBP
+
+2024-01-01 commodity GBP
+  name: British Pound Sterling
+
+2024-01-01 open Assets:Bank:Current GBP
+alias Current Assets:Bank:Current
+
+2024-01-15 data interest:base-rate 5.25
+
+2024-01-18 * Online purchase
+  Assets:CreditCard -> Expenses:Groceries "Delivery order" 32.00 GBP
+
+---
+
+(source_file
+  (directive
+    (option_directive
+      (option_key)
+      (option_value)))
+  (directive
+    (commodity_directive
+      (datetime
+        (date))
+      (commodity)
+      (metadata_line
+        (metadata_key)
+        (metadata_value))))
+  (directive
+    (open_directive
+      (datetime
+        (date))
+      (account)
+      (commodity_list
+        (commodity))))
+  (directive
+    (alias_directive
+      (alias_name)
+      (account)))
+  (directive
+    (data_point
+      (datetime
+        (date))
+      (param_name)
+      (param_value)))
+  (transaction
+    (header
+      (datetime
+        (date))
+      (flag)
+      (payee))
+    (movement
+      from: (account)
+      (arrow)
+      to: (account)
+      (description)
+      (amount)
+      (commodity))))

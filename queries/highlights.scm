@@ -1,4 +1,9 @@
 (date) @constant
+(time) @constant
+(timezone) @constant
+(tz_offset) @constant
+(knowledge_datetime "%" @operator)
+(period_anchor) @operator
 
 (flag) @keyword
 
@@ -17,3 +22,25 @@
 (commodity) @constant
 
 (comment) @comment
+
+(metadata_key) @property
+(metadata_value) @string
+
+(param_name) @property
+(param_value) @string
+
+(option_key) @property
+(option_value) @string
+
+(alias_name) @variable
+
+(customer_name) @string
+
+"commodity" @keyword
+"open" @keyword
+"option" @keyword
+"alias" @keyword
+"customer" @keyword
+"data" @keyword
+"account" @keyword
+"max-aggregate-balance" @keyword
