@@ -2,6 +2,10 @@
 
 ## [Unreleased]
 
+## [0.1.5] - 2026-03-15
+
+ - Update CHANGELOG for v0.1.4
+
 ## [0.1.4] - 2026-03-15
 
  - Working defintion
