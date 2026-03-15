@@ -2,9 +2,6 @@
 	"folders": [
 		{
 			"path": ".."
-		},
-		{
-			"path": "../../tree-sitter-goluca-WTbug"
 		}
 	],
 	"settings": {
