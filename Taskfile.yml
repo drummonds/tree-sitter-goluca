@@ -4,12 +4,12 @@ tasks:
   generate:
     desc: Generate parser from grammar
     cmds:
-      - npx tree-sitter generate
+      - npx tree-sitter-cli generate
 
   test:
     desc: Run tree-sitter tests
     cmds:
-      - npx tree-sitter test
+      - npx tree-sitter-cli test
 
   check:
     desc: Generate and test

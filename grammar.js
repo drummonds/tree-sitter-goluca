@@ -47,7 +47,14 @@ module.exports = grammar({
       ),
 
     option_directive: ($) =>
-      seq("option", $._sp, $.option_key, $._sp, $.option_value, "\n"),
+      seq(
+        "option",
+        $._sp,
+        $.option_key,
+        $._sp,
+        $.option_value,
+        "\n",
+      ),
 
     alias_directive: ($) =>
       seq("alias", $._sp, $.alias_name, $._sp, $.account, "\n"),
@@ -181,9 +188,9 @@ module.exports = grammar({
 
     commodity_list: ($) => seq($.commodity, repeat(seq(",", $.commodity))),
 
-    option_key: (_) => /[a-z][a-z-]*/,
+    option_key: (_) => choice(/"[^"]*"/, /[a-z][a-z-]*/),
 
-    option_value: (_) => /[^\n]+/,
+    option_value: (_) => choice(/"[^"]*"/, /[^\n]+/),
 
     alias_name: (_) => /[A-Za-z][a-zA-Z0-9-]*/,
 

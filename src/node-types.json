@@ -410,6 +410,11 @@
     }
   },
   {
+    "type": "option_key",
+    "named": true,
+    "fields": {}
+  },
+  {
     "type": "option_value",
     "named": true,
     "fields": {}
@@ -605,10 +610,6 @@
   {
     "type": "option",
     "named": false
-  },
-  {
-    "type": "option_key",
-    "named": true
   },
   {
     "type": "param_name",

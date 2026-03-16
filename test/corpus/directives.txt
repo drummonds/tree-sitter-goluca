@@ -18,6 +18,20 @@ option require-accounts true
       (option_value))))
 
 ===
+Option directive with quoted key and value
+===
+
+option "title" "Test"
+
+---
+
+(source_file
+  (directive
+    (option_directive
+      (option_key)
+      (option_value))))
+
+===
 Alias directive
 ===
 

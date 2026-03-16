@@ -824,12 +824,30 @@
       ]
     },
     "option_key": {
-      "type": "PATTERN",
-      "value": "[a-z][a-z-]*"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\"[^\"]*\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "[a-z][a-z-]*"
+        }
+      ]
     },
     "option_value": {
-      "type": "PATTERN",
-      "value": "[^\\n]+"
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "PATTERN",
+          "value": "\"[^\"]*\""
+        },
+        {
+          "type": "PATTERN",
+          "value": "[^\\n]+"
+        }
+      ]
     },
     "alias_name": {
       "type": "PATTERN",
