@@ -2,6 +2,8 @@
 
 ## [Unreleased]
 
+## [0.1.6] - 2026-03-16
+
 ## [0.1.5] - 2026-03-15
 
  - Update CHANGELOG for v0.1.4
